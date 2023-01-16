@@ -13,6 +13,7 @@ import math
 import subprocess
 
 
+
 minecraft_version = "1.19.3"
 
 
@@ -68,17 +69,17 @@ ctype = types[0]
 
 
 
-header_button_size = math.ceil(800/len(types))*2
+header_button_size = math.ceil(800/(len(types)*0.5))
 
 
-threads = []
+def gimpInstance():
+    os.system("gimp")
+
+#gimp = Thread(target=gimpInstance()).start()
 
 def startGimp(tipe, texet):
-    threads.append(Thread(target=openGimp(tipe, texet)))
-
-    for x in threads:
-        x.start()
-        x.join()
+    Thread(target=openGimp(tipe, texet)).start()
+    
 
 def openGimp(tp, txt):
     os.system("gimp "+ dir_path + tp + txt)
@@ -107,10 +108,9 @@ def build_buttons_list():
         buttons.append(build_button(ctype + "/", load_textures(ctype)[i]))
         if (i % 2) == 0:
             text.window_create("end", window=buttons[i])
-            text.insert("end", "\n")
+
         else:
             textr.window_create("end", window=buttons[i])
-            textr.insert("end", "\n")
             #buttons[i].grid(row = i, column = 0, sticky = W, pady = 2)
 
     text.config(state=DISABLED)
@@ -157,4 +157,6 @@ build_header()
 
 
 print("starting main loop")
-window.mainloop()
+
+mainLoop = Thread(target=window.mainloop())
+mainLoop.start()
