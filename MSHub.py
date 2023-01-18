@@ -5,12 +5,15 @@ import numpy as np
 import os
 import glob 
 import shutil
-import PIL
+import PIL.Image
+from PIL import ImageTk
 from PIL import *
 import time
 from threading import *
 import math
 import subprocess
+import copy
+import sys
 
 
 
@@ -21,6 +24,14 @@ output_stream = os.popen("whoami")
 
 
 username = output_stream.read()[:-1]
+
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 
 
@@ -35,6 +46,8 @@ def load_textures(asset):
     for path in os.listdir(dir_path + asset):
         if path.endswith(".png"):
             images.append(path)
+
+    print("loading images")
     
     return images
 
@@ -42,17 +55,19 @@ window = tk.Tk()
 
 window.title("MSHub")
 
-window.geometry("800x500")
-window.minsize(800, 500)
-window.maxsize(800, 500)
+window.configure(bg="#a1a1a1")
+
+window.geometry("800x1000")
+window.minsize(800, 800)
+window.maxsize(800, 800)
 
 text = tk.Text(window, bg = 'lightgrey')
 text.pack(side="left")
-text.place(x=0, y=80, width= 384, height= 460)
+text.place(x=0, y=120, width= 384, height= 680)
 
 textr = tk.Text(window, bg = 'lightgrey')
 textr.pack(side="left")
-textr.place(x=400, y=80, width= 384, height= 460)
+textr.place(x=400, y=120, width= 384, height= 680)
 
 def yview(*args):
     text.yview(*args)
@@ -67,7 +82,14 @@ buttons = []
 types = os.listdir(dir_path)
 ctype = types[0]
 
+ccmages = []
 
+
+
+header_buttons = []
+
+#print(load_textures(ctype))
+ctextures = []
 
 header_button_size = math.ceil(800/(len(types)*0.5))
 
@@ -86,26 +108,82 @@ def openGimp(tp, txt):
 
 
 
+mag = tk.PhotoImage(file = resource_path("/home/abris/Desktop/Programok/MSHub/magni2.png")).zoom(2)
 
+
+
+
+searchbar = Entry(window, font=('Georgia 30'))
+
+searchbar.pack(side="right")
+
+searchbar.place(x=420, y=0, width=300)
+
+def searchCmd():
+    global cutex
+    cutex = load_textures(ctype)
+    stext = searchbar.get()
+    
+    cutexer = copy.copy(cutex)
+    
+    if stext != "":
+        for z in range(len(cutex)):
+            if stext not in cutex[z]:
+                print(len(cutex), cutex[z])
+                cutexer.remove(cutex[z])
+    cutex = cutexer
+    build_buttons_list()
+        
+
+
+searchButton = tk.Button(window, image=mag, command=searchCmd)
+
+searchButton.pack(side="right")
+
+searchButton.place(x=720, y=0, width=80, height="40")
+
+
+cutex = load_textures(ctype)
+
+
+def updatee(event):
+    sbcn = searchbar.get()
+
+    if event.keysym == "BackSpace":
+        if sbcn == "":
+            #build_buttons_list()
+            pass
+
+    if event.keysym == "Return":
+        searchCmd()
+        
 
 
 def build_button(type, img):
     global photos
-    photo = tk.PhotoImage(file = dir_path + type + img).zoom(4)
-    photoimage = photo.subsample(1, 1)
-    photos.append(photoimage)
+    newsize = (64, 64)
+    photo = ImageTk.PhotoImage(PIL.Image.open(dir_path + type + img).resize(newsize, resample=Image.NEAREST))
+    photos.append(photo)
 
-    return tk.Button(window, text=img[:-4].replace(type, ''), height=80, width=350, bg='white', image=photoimage, command=lambda: startGimp(type, img), compound = LEFT)
+    return tk.Button(window, text=img[:-4].replace(type, ''), height=80, width=350, bg="lightgrey", image=photo, command=lambda: startGimp(type, img), compound = LEFT)
 
 
-buttons = []
-header_buttons = []
 
-#print(load_textures(ctype))
+
 
 def build_buttons_list():
-    for i in range(len(load_textures(ctype))):
-        buttons.append(build_button(ctype + "/", load_textures(ctype)[i]))
+    global ctextures
+    ctextures = load_textures(ctype)
+
+    for but in buttons:
+        print(but)
+        but.destroy()
+    buttons.clear()
+        
+    print(buttons)
+
+    for i in range(len(cutex)):
+        buttons.append(build_button(ctype + "/", cutex[i]))
         if (i % 2) == 0:
             text.window_create("end", window=buttons[i])
 
@@ -121,11 +199,14 @@ def build_buttons_list():
 def changeType(ih):
     global ctype
     global buttons
+    global cutex
     ctype = ih
     for v in buttons:
         v.destroy()
 
     buttons = []
+
+    cutex = load_textures(ctype)
 
     build_buttons_list()
 
@@ -143,13 +224,13 @@ def build_header():
         header_buttons.append(build_type_button(types[a]))
         header_buttons[a].pack(side="left")
         if a  < len(types)/2 and row_swtch == False:
-            header_buttons[a].place(x=u*header_button_size, y=0, width= header_button_size, height= 40)
+            header_buttons[a].place(x=u*header_button_size, y=40, width= header_button_size, height= 40)
             u = u + 1
         else:
             if row_swtch == False:
                 u = 0
             row_swtch = True
-            header_buttons[a].place(x=u*header_button_size, y=40, width= header_button_size, height= 40)
+            header_buttons[a].place(x=u*header_button_size, y=80, width= header_button_size, height= 40)
             u = u + 1
 
 build_buttons_list()
@@ -158,5 +239,7 @@ build_header()
 
 print("starting main loop")
 
+window.bind("<KeyRelease>", updatee)
 mainLoop = Thread(target=window.mainloop())
 mainLoop.start()
+

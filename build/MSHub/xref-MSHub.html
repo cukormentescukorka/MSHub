@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>modulegraph cross reference for MSHub.py, pyi_rth__tkinter.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgres.py, pyi_rth_pkgutil.py, pyi_rth_pyside2.py, pyi_rth_setuptools.py</title>
+    <title>modulegraph cross reference for MSHub.py, pyi_rth__tkinter.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgres.py, pyi_rth_pkgutil.py, pyi_rth_setuptools.py</title>
     <style>
       .node { padding: 0.5em 0 0.5em; border-top: thin grey dotted; }
       .moduletype { font: smaller italic }
@@ -11,7 +11,7 @@
     </style>
   </head>
   <body>
-    <h1>modulegraph cross reference for MSHub.py, pyi_rth__tkinter.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgres.py, pyi_rth_pkgutil.py, pyi_rth_pyside2.py, pyi_rth_setuptools.py</h1>
+    <h1>modulegraph cross reference for MSHub.py, pyi_rth__tkinter.py, pyi_rth_inspect.py, pyi_rth_multiprocessing.py, pyi_rth_pkgres.py, pyi_rth_pkgutil.py, pyi_rth_setuptools.py</h1>
 
 <div class="node">
   <a name="MSHub.py"></a>
@@ -19,12 +19,16 @@
 <span class="moduletype">Script</span>  <div class="import">
 imports:
     <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.Image">PIL.Image</a>
+ &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
+ &#8226;   <a href="#PIL._tkinter_finder">PIL._tkinter_finder</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#abc">abc</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#copy">copy</a>
  &#8226;   <a href="#copyreg">copyreg</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
@@ -170,7 +174,6 @@ imports:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
- &#8226;   <a href="#pyi_rth_pyside2.py">pyi_rth_pyside2.py</a>
  &#8226;   <a href="#pyi_rth_setuptools.py">pyi_rth_setuptools.py</a>
  &#8226;   <a href="#re">re</a>
  &#8226;   <a href="#reprlib">reprlib</a>
@@ -180,6 +183,7 @@ imports:
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
  &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#time">time</a>
  &#8226;   <a href="#tkinter">tkinter</a>
@@ -299,23 +303,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="pyi_rth_pyside2.py"></a>
-  <a target="code" href="/home/abris/.local/lib/python3.10/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pyside2.py" type="text/plain"><tt>pyi_rth_pyside2.py</tt></a>
-<span class="moduletype">Script</span>  <div class="import">
-imports:
-    <a href="#os">os</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#MSHub.py">MSHub.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="pyi_rth_setuptools.py"></a>
   <a target="code" href="/home/abris/.local/lib/python3.10/site-packages/PyInstaller/hooks/rthooks/pyi_rth_setuptools.py" type="text/plain"><tt>pyi_rth_setuptools.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
@@ -328,39 +315,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#MSHub.py">MSHub.py</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="'PyQt5.QtGui'"></a>
-  <a target="code" href="" type="text/plain"><tt>'PyQt5.QtGui'</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="'PyQt6.QtGui'"></a>
-  <a target="code" href="" type="text/plain"><tt>'PyQt6.QtGui'</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="'PySide6.QtGui'"></a>
-  <a target="code" href="" type="text/plain"><tt>'PySide6.QtGui'</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
 
   </div>
 
@@ -591,17 +545,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="IPython"></a>
-  <a target="code" href="" type="text/plain"><tt>IPython</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageShow">PIL.ImageShow</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="Image"></a>
   <a target="code" href="" type="text/plain"><tt>Image</tt></a>
 <span class="moduletype">MissingModule</span>  <div class="import">
@@ -753,6 +696,7 @@ imported by:
  &#8226;   <a href="#PIL._imagingcms">PIL._imagingcms</a>
  &#8226;   <a href="#PIL._imagingft">PIL._imagingft</a>
  &#8226;   <a href="#PIL._imagingtk">PIL._imagingtk</a>
+ &#8226;   <a href="#PIL._tkinter_finder">PIL._tkinter_finder</a>
  &#8226;   <a href="#PIL._util">PIL._util</a>
  &#8226;   <a href="#PIL._version">PIL._version</a>
  &#8226;   <a href="#PIL._webp">PIL._webp</a>
@@ -1316,7 +1260,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL">PIL</a>
+    <a href="#MSHub.py">MSHub.py</a>
+ &#8226;   <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.BlpImagePlugin">PIL.BlpImagePlugin</a>
  &#8226;   <a href="#PIL.BmpImagePlugin">PIL.BmpImagePlugin</a>
  &#8226;   <a href="#PIL.BufrStubImagePlugin">PIL.BufrStubImagePlugin</a>
@@ -1719,18 +1664,10 @@ imported by:
   <a target="code" href="/home/abris/miniconda3/envs/TkinterAppDev/lib/python3.10/site-packages/PIL/ImageQt.py" type="text/plain"><tt>PIL.ImageQt</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#'PyQt5.QtGui'">'PyQt5.QtGui'</a>
- &#8226;   <a href="#'PyQt6.QtGui'">'PyQt6.QtGui'</a>
- &#8226;   <a href="#'PySide6.QtGui'">'PySide6.QtGui'</a>
- &#8226;   <a href="#PIL">PIL</a>
+    <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
  &#8226;   <a href="#PIL._deprecate">PIL._deprecate</a>
  &#8226;   <a href="#PIL._util">PIL._util</a>
- &#8226;   <a href="#PyQt5">PyQt5</a>
- &#8226;   <a href="#PyQt6">PyQt6</a>
- &#8226;   <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
- &#8226;   <a href="#PySide6">PySide6</a>
  &#8226;   <a href="#io">io</a>
  &#8226;   <a href="#sys">sys</a>
 
@@ -1769,8 +1706,7 @@ imported by:
   <a target="code" href="/home/abris/miniconda3/envs/TkinterAppDev/lib/python3.10/site-packages/PIL/ImageShow.py" type="text/plain"><tt>PIL.ImageShow</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imports:
-    <a href="#IPython">IPython</a>
- &#8226;   <a href="#PIL">PIL</a>
+    <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
  &#8226;   <a href="#PIL._deprecate">PIL._deprecate</a>
  &#8226;   <a href="#os">os</a>
@@ -1799,12 +1735,12 @@ imports:
  &#8226;   <a href="#PIL._deprecate">PIL._deprecate</a>
  &#8226;   <a href="#PIL._imagingtk">PIL._imagingtk</a>
  &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#tkinter">tkinter</a>
 
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL">PIL</a>
+    <a href="#MSHub.py">MSHub.py</a>
+ &#8226;   <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.SpiderImagePlugin">PIL.SpiderImagePlugin</a>
 
   </div>
@@ -2607,6 +2543,7 @@ imported by:
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PngImagePlugin">PIL.PngImagePlugin</a>
+ &#8226;   <a href="#PIL._tkinter_finder">PIL._tkinter_finder</a>
 
   </div>
 
@@ -2683,6 +2620,24 @@ imports:
 imported by:
     <a href="#PIL">PIL</a>
  &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="PIL._tkinter_finder"></a>
+  <a target="code" href="/home/abris/miniconda3/envs/TkinterAppDev/lib/python3.10/site-packages/PIL/_tkinter_finder.py" type="text/plain"><tt>PIL._tkinter_finder</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL._deprecate">PIL._deprecate</a>
+ &#8226;   <a href="#sys">sys</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#MSHub.py">MSHub.py</a>
 
   </div>
 
@@ -2767,123 +2722,11 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="PyQt5"></a>
-  <a target="code" href="" type="text/plain"><tt>PyQt5</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PyQt6"></a>
-  <a target="code" href="" type="text/plain"><tt>PyQt6</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PySide2"></a>
-  <a target="code" href="/home/abris/.local/lib/python3.10/site-packages/PySide2/__init__.py" type="text/plain"><tt>PySide2</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
- &#8226;   <a href="#__future__">__future__</a>
- &#8226;   <a href="#inspect">inspect</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
- &#8226;   <a href="#sys">sys</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
- &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PySide2.QtCore"></a>
-  <tt>PySide2.QtCore</tt> <span class="moduletype"><tt>/home/abris/.local/lib/python3.10/site-packages/PySide2/QtCore.abi3.so</tt></span>  <div class="import">
-imports:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
- &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PySide2.QtGui"></a>
-  <tt>PySide2.QtGui</tt> <span class="moduletype"><tt>/home/abris/.local/lib/python3.10/site-packages/PySide2/QtGui.abi3.so</tt></span>  <div class="import">
-imports:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtNetwork">PySide2.QtNetwork</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PySide2.QtNetwork"></a>
-  <tt>PySide2.QtNetwork</tt> <span class="moduletype"><tt>/home/abris/.local/lib/python3.10/site-packages/PySide2/QtNetwork.abi3.so</tt></span>  <div class="import">
-imports:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtCore">PySide2.QtCore</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#PySide2.QtCore">PySide2.QtCore</a>
- &#8226;   <a href="#PySide2.QtGui">PySide2.QtGui</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="PySide6"></a>
-  <a target="code" href="" type="text/plain"><tt>PySide6</tt></a>
-<span class="moduletype">MissingModule</span>  <div class="import">
-imported by:
-    <a href="#PIL.ImageQt">PIL.ImageQt</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="__future__"></a>
   <a target="code" href="/home/abris/miniconda3/envs/TkinterAppDev/lib/python3.10/__future__.py" type="text/plain"><tt>__future__</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
 imported by:
     <a href="#PIL._deprecate">PIL._deprecate</a>
- &#8226;   <a href="#PySide2">PySide2</a>
  &#8226;   <a href="#codeop">codeop</a>
  &#8226;   <a href="#doctest">doctest</a>
  &#8226;   <a href="#numpy.array_api._array_object">numpy.array_api._array_object</a>
@@ -5079,7 +4922,6 @@ imported by:
  &#8226;   <a href="#pycparser.ply.yacc">pycparser.ply.yacc</a>
  &#8226;   <a href="#secrets">secrets</a>
  &#8226;   <a href="#setuptools._distutils.command.upload">setuptools._distutils.command.upload</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#ssl">ssl</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#xmlrpc.client">xmlrpc.client</a>
@@ -6324,7 +6166,6 @@ imported by:
  &#8226;   <a href="#setuptools.depends">setuptools.depends</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
  &#8226;   <a href="#setuptools.wheel">setuptools.wheel</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#typing">typing</a>
  &#8226;   <a href="#unittest.case">unittest.case</a>
@@ -6370,7 +6211,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PIL.GifImagePlugin">PIL.GifImagePlugin</a>
+    <a href="#MSHub.py">MSHub.py</a>
+ &#8226;   <a href="#PIL.GifImagePlugin">PIL.GifImagePlugin</a>
  &#8226;   <a href="#_sre">_sre</a>
  &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#collections">collections</a>
@@ -13864,7 +13706,6 @@ imported by:
  &#8226;   <a href="#setuptools.config.setupcfg">setuptools.config.setupcfg</a>
  &#8226;   <a href="#setuptools.extension">setuptools.extension</a>
  &#8226;   <a href="#setuptools.monkey">setuptools.monkey</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#tempfile">tempfile</a>
  &#8226;   <a href="#threading">threading</a>
  &#8226;   <a href="#tokenize">tokenize</a>
@@ -14863,8 +14704,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#ast">ast</a>
+    <a href="#ast">ast</a>
  &#8226;   <a href="#asyncio.coroutines">asyncio.coroutines</a>
  &#8226;   <a href="#asyncio.format_helpers">asyncio.format_helpers</a>
  &#8226;   <a href="#asyncio.tasks">asyncio.tasks</a>
@@ -15008,7 +14848,6 @@ imported by:
  &#8226;   <a href="#setuptools.config.expand">setuptools.config.expand</a>
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#site">site</a>
  &#8226;   <a href="#socket">socket</a>
@@ -15242,7 +15081,6 @@ imported by:
  &#8226;   <a href="#dataclasses">dataclasses</a>
  &#8226;   <a href="#pygments.lexers.python">pygments.lexers.python</a>
  &#8226;   <a href="#rlcompleter">rlcompleter</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
 
   </div>
 
@@ -15396,7 +15234,6 @@ imported by:
  &#8226;   <a href="#pkgutil">pkgutil</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.depends">setuptools.depends</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#zipimport">zipimport</a>
 
   </div>
@@ -22379,7 +22216,6 @@ imported by:
  &#8226;   <a href="#PIL.TiffImagePlugin">PIL.TiffImagePlugin</a>
  &#8226;   <a href="#PIL._util">PIL._util</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
- &#8226;   <a href="#PySide2">PySide2</a>
  &#8226;   <a href="#_bootsubprocess">_bootsubprocess</a>
  &#8226;   <a href="#_distutils_hack">_distutils_hack</a>
  &#8226;   <a href="#_osx_support">_osx_support</a>
@@ -22559,7 +22395,6 @@ imported by:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
- &#8226;   <a href="#pyi_rth_pyside2.py">pyi_rth_pyside2.py</a>
  &#8226;   <a href="#pyi_rth_setuptools.py">pyi_rth_setuptools.py</a>
  &#8226;   <a href="#random">random</a>
  &#8226;   <a href="#runpy">runpy</a>
@@ -22631,7 +22466,6 @@ imported by:
  &#8226;   <a href="#setuptools.installer">setuptools.installer</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
  &#8226;   <a href="#setuptools.wheel">setuptools.wheel</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#site">site</a>
@@ -32243,7 +32077,6 @@ imported by:
  &#8226;   <a href="#setuptools.extension">setuptools.extension</a>
  &#8226;   <a href="#setuptools.glob">setuptools.glob</a>
  &#8226;   <a href="#setuptools.wheel">setuptools.wheel</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#string">string</a>
  &#8226;   <a href="#sysconfig">sysconfig</a>
@@ -36616,54 +36449,6 @@ imported by:
 </div>
 
 <div class="node">
-  <a name="shiboken2"></a>
-  <a target="code" href="/home/abris/.local/lib/python3.10/site-packages/shiboken2/__init__.py" type="text/plain"><tt>shiboken2</tt></a>
-<span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#base64">base64</a>
- &#8226;   <a href="#contextlib">contextlib</a>
- &#8226;   <a href="#functools">functools</a>
- &#8226;   <a href="#io">io</a>
- &#8226;   <a href="#keyword">keyword</a>
- &#8226;   <a href="#marshal">marshal</a>
- &#8226;   <a href="#os">os</a>
- &#8226;   <a href="#re">re</a>
- &#8226;   <a href="#shiboken2.shiboken2">shiboken2.shiboken2</a>
- &#8226;   <a href="#struct">struct</a>
- &#8226;   <a href="#sys">sys</a>
- &#8226;   <a href="#tempfile">tempfile</a>
- &#8226;   <a href="#textwrap">textwrap</a>
- &#8226;   <a href="#traceback">traceback</a>
- &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#typing">typing</a>
- &#8226;   <a href="#zipfile">zipfile</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#PySide2">PySide2</a>
- &#8226;   <a href="#shiboken2.shiboken2">shiboken2.shiboken2</a>
-
-  </div>
-
-</div>
-
-<div class="node">
-  <a name="shiboken2.shiboken2"></a>
-  <tt>shiboken2.shiboken2</tt> <span class="moduletype"><tt>/home/abris/.local/lib/python3.10/site-packages/shiboken2/shiboken2.abi3.so</tt></span>  <div class="import">
-imports:
-    <a href="#shiboken2">shiboken2</a>
-
-  </div>
-  <div class="import">
-imported by:
-    <a href="#shiboken2">shiboken2</a>
-
-  </div>
-
-</div>
-
-<div class="node">
   <a name="shlex"></a>
   <a target="code" href="/home/abris/miniconda3/envs/TkinterAppDev/lib/python3.10/shlex.py" type="text/plain"><tt>shlex</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -37137,7 +36922,6 @@ imported by:
  &#8226;   <a href="#plistlib">plistlib</a>
  &#8226;   <a href="#setuptools._vendor.packaging._manylinux">setuptools._vendor.packaging._manylinux</a>
  &#8226;   <a href="#setuptools._vendor.packaging._musllinux">setuptools._vendor.packaging._musllinux</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#zipfile">zipfile</a>
 
@@ -37241,7 +37025,8 @@ imported by:
   <a name="sys"></a>
   <tt>sys</tt> <span class="moduletype"><i>(builtin module)</i></span>  <div class="import">
 imported by:
-    <a href="#PIL.EpsImagePlugin">PIL.EpsImagePlugin</a>
+    <a href="#MSHub.py">MSHub.py</a>
+ &#8226;   <a href="#PIL.EpsImagePlugin">PIL.EpsImagePlugin</a>
  &#8226;   <a href="#PIL.IcnsImagePlugin">PIL.IcnsImagePlugin</a>
  &#8226;   <a href="#PIL.Image">PIL.Image</a>
  &#8226;   <a href="#PIL.ImageCms">PIL.ImageCms</a>
@@ -37253,8 +37038,8 @@ imported by:
  &#8226;   <a href="#PIL.JpegImagePlugin">PIL.JpegImagePlugin</a>
  &#8226;   <a href="#PIL.PyAccess">PIL.PyAccess</a>
  &#8226;   <a href="#PIL.SpiderImagePlugin">PIL.SpiderImagePlugin</a>
+ &#8226;   <a href="#PIL._tkinter_finder">PIL._tkinter_finder</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
- &#8226;   <a href="#PySide2">PySide2</a>
  &#8226;   <a href="#_aix_support">_aix_support</a>
  &#8226;   <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_compression">_compression</a>
@@ -37465,7 +37250,6 @@ imported by:
  &#8226;   <a href="#pyi_rth_multiprocessing.py">pyi_rth_multiprocessing.py</a>
  &#8226;   <a href="#pyi_rth_pkgres.py">pyi_rth_pkgres.py</a>
  &#8226;   <a href="#pyi_rth_pkgutil.py">pyi_rth_pkgutil.py</a>
- &#8226;   <a href="#pyi_rth_pyside2.py">pyi_rth_pyside2.py</a>
  &#8226;   <a href="#quopri">quopri</a>
  &#8226;   <a href="#runpy">runpy</a>
  &#8226;   <a href="#selectors">selectors</a>
@@ -37524,7 +37308,6 @@ imported by:
  &#8226;   <a href="#setuptools.monkey">setuptools.monkey</a>
  &#8226;   <a href="#setuptools.msvc">setuptools.msvc</a>
  &#8226;   <a href="#setuptools.unicode_utils">setuptools.unicode_utils</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#shlex">shlex</a>
  &#8226;   <a href="#shutil">shutil</a>
  &#8226;   <a href="#site">site</a>
@@ -37713,7 +37496,6 @@ imported by:
  &#8226;   <a href="#setuptools._vendor.importlib_resources._common">setuptools._vendor.importlib_resources._common</a>
  &#8226;   <a href="#setuptools._vendor.jaraco.context">setuptools._vendor.jaraco.context</a>
  &#8226;   <a href="#setuptools.installer">setuptools.installer</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#urllib.request">urllib.request</a>
  &#8226;   <a href="#urllib.response">urllib.response</a>
  &#8226;   <a href="#webbrowser">webbrowser</a>
@@ -37767,7 +37549,6 @@ imported by:
  &#8226;   <a href="#setuptools.config">setuptools.config</a>
  &#8226;   <a href="#setuptools.config._validate_pyproject.error_reporting">setuptools.config._validate_pyproject.error_reporting</a>
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#site">site</a>
 
   </div>
@@ -37927,7 +37708,6 @@ imports:
   <div class="import">
 imported by:
     <a href="#MSHub.py">MSHub.py</a>
- &#8226;   <a href="#PIL.ImageTk">PIL.ImageTk</a>
  &#8226;   <a href="#tkinter.constants">tkinter.constants</a>
  &#8226;   <a href="#tkinter.ttk">tkinter.ttk</a>
 
@@ -38052,7 +37832,6 @@ imported by:
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#pydoc">pydoc</a>
  &#8226;   <a href="#setuptools._vendor.pyparsing.core">setuptools._vendor.pyparsing.core</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#site">site</a>
  &#8226;   <a href="#socketserver">socketserver</a>
  &#8226;   <a href="#threading">threading</a>
@@ -38194,7 +37973,6 @@ imported by:
  &#8226;   <a href="#setuptools.config._apply_pyprojecttoml">setuptools.config._apply_pyprojecttoml</a>
  &#8226;   <a href="#setuptools.config.expand">setuptools.config.expand</a>
  &#8226;   <a href="#setuptools.monkey">setuptools.monkey</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#subprocess">subprocess</a>
  &#8226;   <a href="#sysconfig">sysconfig</a>
  &#8226;   <a href="#tempfile">tempfile</a>
@@ -38330,7 +38108,6 @@ imported by:
  &#8226;   <a href="#setuptools.config.setupcfg">setuptools.config.setupcfg</a>
  &#8226;   <a href="#setuptools.discovery">setuptools.discovery</a>
  &#8226;   <a href="#setuptools.dist">setuptools.dist</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#typing_extensions">typing_extensions</a>
 
   </div>
@@ -39838,7 +39615,6 @@ imported by:
  &#8226;   <a href="#setuptools.archive_util">setuptools.archive_util</a>
  &#8226;   <a href="#setuptools.command.bdist_egg">setuptools.command.bdist_egg</a>
  &#8226;   <a href="#setuptools.wheel">setuptools.wheel</a>
- &#8226;   <a href="#shiboken2">shiboken2</a>
  &#8226;   <a href="#shutil">shutil</a>
 
   </div>
