@@ -25,6 +25,10 @@ output_stream = os.popen("whoami")
 
 username = output_stream.read()[:-1]
 
+
+base_files = ['versions', 'launcher_accounts.json', 'bootstrap_log.txt', 'launcher', 'window_settings_launcher.conf', 'libraries', 'webcache2', 'launcher_msa_credentials.bin', 'assets', 'treatment_tags.json', 'resourcepacks', 'logs', 'launcher_product_state.json', 'runtime', 'launcher_gamer_pics.json', 'window_settings_xal_login.conf', 'launcher_settings.json', 'launcher_cef_log.txt', 'launcher_log.txt', 'launcher_entitlements.json', 'launcher_ui_state.json', 'launcher_profiles.json', 'saves', 'realms_persistence.json']
+
+
 def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
