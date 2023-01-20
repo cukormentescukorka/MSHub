@@ -31,7 +31,7 @@ username = output_stream.read()[:-1]
 
 
 
-base_files = ['versions', 'launcher_accounts.json', 'bootstrap_log.txt', 'launcher', 'window_settings_launcher.conf', 'libraries', 'webcache2', 'launcher_msa_credentials.bin', 'assets', 'treatment_tags.json', 'resourcepacks', 'logs', 'launcher_product_state.json', 'runtime', 'launcher_gamer_pics.json', 'window_settings_xal_login.conf', 'launcher_settings.json', 'launcher_cef_log.txt', 'launcher_log.txt', 'launcher_entitlements.json', 'launcher_ui_state.json', 'launcher_profiles.json', 'saves', 'realms_persistence.json']
+base_files = ["assets", "launcher", "resourcepacks", "server-resource-packs", "bin", "libraries", "runtime", "shaderpacks", "crash-reports", "logs", "saves", "versions", "profilekeys", "screenshots", "webcache2"]
 
 pack_options = []
 
@@ -65,7 +65,7 @@ if pack_options != []:
     selection = pack_options[0]
 
 
-minecraft_version = "1.19.3" #[name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
+minecraft_version = [name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
 
 print(minecraft_version)
 
