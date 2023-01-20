@@ -65,8 +65,9 @@ if pack_options != []:
     selection = pack_options[0]
 
 
-minecraft_version = next(os.walk(f"/home/{username}/.minecraft/{selection}/"))[1][0]
+minecraft_version = [name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
 
+print(minecraft_version)
 
 
 print(minecraft_version)
