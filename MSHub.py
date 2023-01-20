@@ -14,6 +14,7 @@ import math
 import subprocess
 import copy
 import sys
+import zipfile
 
 
 
@@ -24,6 +25,9 @@ output_stream = os.popen("whoami")
 
 
 username = output_stream.read()[:-1]
+
+
+
 
 
 
@@ -184,7 +188,6 @@ def openGimp(tp, txt):
 
 
 
-mag = tk.PhotoImage(file = resource_path("/home/abris/Desktop/Programok/MSHub/magni2.png")).zoom(2)
 
 
 
@@ -212,7 +215,7 @@ def searchCmd():
         
 
 
-searchButton = tk.Button(window, image=mag, command=searchCmd)
+searchButton = tk.Button(window, text="SEARCH", command=searchCmd, bg="green")
 
 searchButton.pack(side="right")
 
@@ -225,7 +228,16 @@ cutex = load_textures(ctype)
 
 
 def export():
-    os.system(f"zip '/home/{username}/.minecraft/{selection}/{minecraft_version}/{selection}.zip' '/home/{username}/.minecraft/{selection}/{minecraft_version}/pack.mcmeta' '/home/{username}/.minecraft/{selection}/{minecraft_version}/assets'")
+
+    os.system(f"rm '/home/{username}/.minecraft/{selection}/{minecraft_version}/{selection}.zip'")
+
+    os.chdir(f"/home/{username}/.minecraft/{selection}/{minecraft_version}/")
+
+    os.system(f"zip -r '/home/{username}/.minecraft/{selection}/{minecraft_version}/{selection}.zip' 'pack.mcmeta'")
+
+    os.system(f"zip -ur '/home/{username}/.minecraft/{selection}/{minecraft_version}/{selection}.zip' 'assets'")
+
+
 
     os.system(f"cp '/home/{username}/.minecraft/{selection}/{minecraft_version}/{selection}.zip' '/home/{username}/.minecraft/resourcepacks/'")
 
