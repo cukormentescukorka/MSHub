@@ -15,7 +15,7 @@ IMPORTANT: Do NOT post this list to the issue-tracker. Use it as a basis for
             tracking down the missing module yourself. Thanks!
 
 missing module named pyimod02_importers - imported by /home/abris/.local/lib/python3.10/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgutil.py (top-level), /home/abris/.local/lib/python3.10/site-packages/PyInstaller/hooks/rthooks/pyi_rth_pkgres.py (top-level)
-missing module named 'org.python' - imported by pickle (optional), xml.sax (delayed, conditional)
+missing module named org - imported by pickle (optional)
 missing module named pyparsing - imported by packaging.requirements (top-level), packaging.markers (top-level), setuptools._vendor.pyparsing.diagram (top-level), pkg_resources._vendor.pyparsing.diagram (top-level)
 missing module named _manylinux - imported by packaging._manylinux (delayed, optional), setuptools._vendor.packaging._manylinux (delayed, optional), pkg_resources._vendor.packaging._manylinux (delayed, optional)
 missing module named nt - imported by os (delayed, conditional, optional), ntpath (optional), shutil (conditional), importlib._bootstrap_external (conditional), ctypes (delayed, conditional)
@@ -39,6 +39,7 @@ missing module named _winreg - imported by platform (delayed, optional), pkg_res
 missing module named pkg_resources.extern.packaging - imported by pkg_resources.extern (top-level), pkg_resources (top-level)
 missing module named pkg_resources.extern.appdirs - imported by pkg_resources.extern (top-level), pkg_resources (top-level)
 missing module named 'pkg_resources.extern.jaraco' - imported by pkg_resources (top-level), pkg_resources._vendor.jaraco.text (top-level)
+missing module named 'org.python' - imported by copy (optional), xml.sax (delayed, conditional)
 missing module named 'java.lang' - imported by platform (delayed, optional), xml.sax._exceptions (conditional)
 missing module named vms_lib - imported by platform (delayed, optional)
 missing module named java - imported by platform (delayed)
@@ -77,7 +78,6 @@ missing module named trove_classifiers - imported by setuptools.config._validate
 missing module named 'setuptools.extern.packaging.specifiers' - imported by setuptools.config.setupcfg (top-level), setuptools.config._apply_pyprojecttoml (delayed)
 missing module named 'setuptools.extern.packaging.requirements' - imported by setuptools.config.setupcfg (top-level)
 missing module named _scproxy - imported by urllib.request (conditional)
-missing module named org - imported by copy (optional)
 missing module named _dummy_thread - imported by numpy.core.arrayprint (optional), cffi.lock (conditional, optional)
 missing module named dummy_thread - imported by cffi.lock (conditional, optional)
 missing module named thread - imported by cffi.lock (conditional, optional), cffi.cparser (conditional, optional)
