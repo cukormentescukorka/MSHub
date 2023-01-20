@@ -33,7 +33,7 @@ pack_options = []
 
 def scan_packs():
     global pack_options
-    all_packs = os.listdir(f"/home/{username}/.minecraft/")
+    all_packs = next(os.walk(f"/home/{username}/.minecraft/"))[1]
 
     pack_options = []
 
