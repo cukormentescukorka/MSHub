@@ -170,7 +170,7 @@ pack_drop = tk.OptionMenu(window, clicked, *pack_options, command=callback)
 
 pack_drop.pack(side="right")
 
-pack_drop.place(x=200, y=0, width= 200, height= 40)
+pack_drop.place(x=header_button_size*2, y=0, width= 170, height= 40)
 
 
 
@@ -193,7 +193,7 @@ def openGimp(tp, txt):
 
 
 
-searchbar = Entry(window, font=('Georgia 30'))
+searchbar = tk.Entry(window, font=('Georgia 30'))
 
 searchbar.pack(side="right")
 
@@ -216,7 +216,7 @@ def searchCmd():
         
 
 
-searchButton = tk.Button(window, text="SEARCH", command=searchCmd, bg="green")
+searchButton = tk.Button(window, text="SEARCH", command=searchCmd, bg="lightgreen")
 
 searchButton.pack(side="right")
 
@@ -244,12 +244,86 @@ def export():
 
 
 
+name_entry_reference = ""
+
+top = ""
+
+def newpack():
+    global name_entry_reference
+
+    pname = name_entry_reference.get()
+
+
+    os.system(f"mkdir '/home/{username}/.minecraft/{pname}'")
+    #os.system(f"cp '/home/{username}/.minecraft/versions/{minecraft_version}/{minecraft_version}.jar' '/home/{username}/.minecraft/{pname}'")
+
+
+    os.chdir(f"/home/{username}/.minecraft/{pname}/")
+
+
+    os.system(f"mkdir '/home/{username}/.minecraft/{pname}/{minecraft_version}'")
+
+    os.chdir(f"/home/{username}/.minecraft/{pname}/{minecraft_version}")
+    #os.system(f"unzip '/home/{username}/.minecraft/{pname}/{minecraft_version}.jar'")
+
+    with open('readme.mcmeta', 'w') as f:
+        #f.write(f"{"pack": {"pack_format": 12, "description": "{username}'s texture pack made using MSHub"}}")
+
+        print(ag + username + ab)
+
+        
+
+
+    print(pname)
+
+    top.destroy()
+
+
+
+
+
+
+def newpackwindow():
+    global name_entry_reference
+    global top
+
+    top= Toplevel(window)
+    top.geometry("300x150")
+    top.title("New pack")
+
+
+    npn = tk.Label(top, text="New pack name:", font=('Georgia 30'))
+    npn.pack()
+
+    name_entry = tk.Entry(top, font=('Georgia 30'))
+    name_entry.pack()
+    name_entry.place(x=0, y=40)
+
+    name_entry_reference = name_entry
+
+    create_button = tk.Button(top, text="Create", command=newpack)
+    create_button.pack()
+    create_button.place(x=100, y=100, width=100, height=40)
+    
+
+    
+
 
 export_button = tk.Button(window, text="EXPORT", bg="yellow", command=export)
 
 export_button.pack(side="left")
 
 export_button.place(x=0, y=0, width=header_button_size, height=40)
+
+
+
+
+new_button = tk.Button(window, text="NEW PACK", bg="pink", command=newpackwindow)
+
+new_button.pack(side="left")
+
+new_button.place(x=header_button_size, y=0, width=header_button_size, height=40)
+
 
 
 
