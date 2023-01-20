@@ -8,7 +8,7 @@ a = Analysis(
     ['MSHub.py'],
     pathex=[],
     binaries=[],
-    datas=[('magni2.png', '.')],
+    datas=[],
     hiddenimports=['PIL._tkinter_finder'],
     hookspath=[],
     hooksconfig={},
