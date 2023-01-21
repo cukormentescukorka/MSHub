@@ -83,6 +83,12 @@ def load_textures(asset):
         for path in os.listdir(dir_path + asset):
             if path.endswith(".png"):
                 images.append(path)
+        
+        if asset == "models":
+            for path in os.listdir(dir_path + asset + "/armor"):
+                if path.endswith(".png"):
+                    images.append("/armor/" + path)
+                    print(path)
 
     print("loading images")
     
