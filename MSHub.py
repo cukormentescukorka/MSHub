@@ -33,6 +33,13 @@ username = output_stream.read()[:-1]
 
 base_files = ["assets", "launcher", "resourcepacks", "server-resource-packs", "bin", "libraries", "runtime", "shaderpacks", "crash-reports", "logs", "saves", "versions", "profilekeys", "screenshots", "webcache2"]
 
+
+
+
+
+
+
+
 pack_options = []
 
 def scan_packs():
@@ -45,17 +52,9 @@ def scan_packs():
         if f not in base_files:
             pack_options.append(f)
 
+
 scan_packs()
 
-def resource_path(relative_path):
-    try:
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
-
-#def
 
 selection = "packnotfound"
 
@@ -248,14 +247,23 @@ name_entry_reference = ""
 
 top = ""
 
+
+def drop_updater():
+    pack_drop["menu"].delete(0, "end")
+    for item in pack_options:
+        pack_drop["menu"].add_command(label=item, command=lambda value=item: clicked.set(value))
+
 def newpack():
     global name_entry_reference
+    global pack_drop
+    global pack_options
+
 
     pname = name_entry_reference.get()
 
 
     os.system(f"mkdir '/home/{username}/.minecraft/{pname}'")
-    #os.system(f"cp '/home/{username}/.minecraft/versions/{minecraft_version}/{minecraft_version}.jar' '/home/{username}/.minecraft/{pname}'")
+    os.system(f"cp '/home/{username}/.minecraft/versions/{minecraft_version}/{minecraft_version}.jar' '/home/{username}/.minecraft/{pname}'")
 
 
     os.chdir(f"/home/{username}/.minecraft/{pname}/")
@@ -264,12 +272,24 @@ def newpack():
     os.system(f"mkdir '/home/{username}/.minecraft/{pname}/{minecraft_version}'")
 
     os.chdir(f"/home/{username}/.minecraft/{pname}/{minecraft_version}")
-    #os.system(f"unzip '/home/{username}/.minecraft/{pname}/{minecraft_version}.jar'")
+    os.system(f"unzip '/home/{username}/.minecraft/{pname}/{minecraft_version}.jar'")
 
-    with open('readme.mcmeta', 'w') as f:
-        #f.write(f"{"pack": {"pack_format": 12, "description": "{username}'s texture pack made using MSHub"}}")
+    with open('pack.mcmeta', 'w') as f:
 
-        print(ag + username + ab)
+        f.write("""
+        {
+  "pack": {
+    "pack_format": 12,
+    "description": "A texture pack made using MSHub"
+  }
+}
+        """)
+    
+    scan_packs()
+    drop_updater()
+
+
+        
 
         
 
