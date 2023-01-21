@@ -147,35 +147,9 @@ header_button_size = math.ceil(800/(len(types)*0.5))
 
 
 
-def callback(selektion):
-    global selection
-    global minecraft_version
-    selection = selektion
-    minecraft_version = next(os.walk(f"/home/{username}/.minecraft/{selection}/"))[1][0]
-    scan_packs()
-    build_buttons_list()
-    build_header()
 
 
 
-
-
-clicked = StringVar()
-
-
-if pack_options != []:
-    clicked.set(pack_options[0])
-else:
-    clicked.set("No custom texture pack")
-
-
-
-pack_drop = tk.OptionMenu(window, clicked, *pack_options, command=callback)
-
-
-pack_drop.pack(side="right")
-
-pack_drop.place(x=header_button_size*2, y=0, width= 170, height= 40)
 
 
 
@@ -253,11 +227,14 @@ name_entry_reference = ""
 
 top = ""
 
+uitems = []
 
 def drop_updater():
     pack_drop["menu"].delete(0, "end")
     for item in pack_options:
-        pack_drop["menu"].add_command(label=item, command=lambda value=item: clicked.set(value))
+        print(item)
+        uitems.append(item)
+        pack_drop["menu"].add_command(label=uitems[pack_options.index(item)], command=lambda value=item: clicked.set(value))
 
 def newpack():
     global name_entry_reference
@@ -388,11 +365,9 @@ def build_buttons_list():
         ctextures = load_textures(ctype)
 
         for but in buttons:
-            print(but)
             but.destroy()
         buttons.clear()
             
-        print(buttons)
 
         for i in range(len(cutex)):
             buttons.append(build_button(ctype + "/", cutex[i]))
@@ -446,6 +421,40 @@ def build_header():
                 header_buttons[a].place(x=u*header_button_size, y=80, width= header_button_size, height= 40)
                 u = u + 1
 
+
+def callback(selektion, huhu, ioi):
+    global selection
+    global minecraft_version
+    selection = clicked.get()
+    print(selektion, huhu, ioi)
+    #minecraft_version = next(os.walk(f"/home/{username}/.minecraft/{clicked}/"))[1][0]
+    scan_packs()
+    build_buttons_list()
+    build_header()
+
+clicked = StringVar()
+
+
+clicked.trace_add("write", callback)
+
+
+
+
+
+
+if pack_options != []:
+    clicked.set(pack_options[0])
+else:
+    clicked.set("No custom texture pack")
+
+
+
+pack_drop = tk.OptionMenu(window, clicked, *pack_options)
+
+
+pack_drop.pack(side="right")
+
+pack_drop.place(x=header_button_size*2, y=0, width= 170, height= 40)
 build_buttons_list()
 build_header()
 
