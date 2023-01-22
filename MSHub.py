@@ -74,21 +74,28 @@ print(minecraft_version)
 dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
 
 def load_textures(asset):
+    global images
     
     images = []
 
     dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
 
     if selection != "packnotfound":
-        for path in os.listdir(dir_path + asset):
-            if path.endswith(".png"):
-                images.append(path)
+        for paths in os.listdir(dir_path + asset):
+            if paths.endswith(".png"):
+                images.append(paths)
         
-        if asset == "models":
-            for path in os.listdir(dir_path + asset + "/armor"):
-                if path.endswith(".png"):
-                    images.append("/armor/" + path)
-                    print(path)
+        
+        fpath = next(os.walk(dir_path + asset))[1]
+
+        if fpath != []:
+            for subdir in fpath:
+                for pathc in os.listdir(dir_path + asset + "/" + subdir):
+                    if pathc.endswith(".png"):
+                        images.append(subdir + "/" + pathc)
+
+        
+        print(fpath)
 
     print("loading images")
     
