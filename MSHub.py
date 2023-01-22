@@ -61,11 +61,14 @@ if pack_options != []:
     selection = pack_options[0]
 
 
+def contains_certain_characters(string, characters):
+    return all(char in characters for char in string)
+
 
 minecraft_version =  0
 
 for z in next(os.walk(f"/home/{username}/.minecraft/versions/"))[1]:
-    if "." in z:
+    if contains_certain_characters(z, ".0123456789"):
         minecraft_version = z
 
 
