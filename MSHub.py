@@ -34,16 +34,12 @@ username = output_stream.read()[:-1]
 base_files = ["assets", "launcher", "resourcepacks", "server-resource-packs", "bin", "libraries", "runtime", "shaderpacks", "crash-reports", "logs", "saves", "versions", "profilekeys", "screenshots", "webcache2"]
 
 
-
-
-
-
-
-
 pack_options = []
+types = ["notapack"]
 
 def scan_packs():
     global pack_options
+    print("scanning packs")
     all_packs = next(os.walk(f"/home/{username}/.minecraft/"))[1]
 
     pack_options = []
@@ -58,29 +54,91 @@ scan_packs()
 
 selection = "packnotfound"
 
+
 #selection = input("pack: ")
 
 if pack_options != []:
     selection = pack_options[0]
 
 
-minecraft_version = [name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
+
+minecraft_version =  0
+
+for z in next(os.walk(f"/home/{username}/.minecraft/versions/"))[1]:
+    if "." in z:
+        minecraft_version = z
+
+
 
 print(minecraft_version)
 
 
 print(minecraft_version)
+
+#########################################################################################
 
 dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
+
+def create_first():
+    global types
+    global selection
+    global dir_path
+
+    if selection == "packnotfound":
+
+        pname = f"{username}_texture_pack"
+
+
+        os.system(f"mkdir '/home/{username}/.minecraft/{pname}'")
+        os.system(f"cp '/home/{username}/.minecraft/versions/{minecraft_version}/{minecraft_version}.jar' '/home/{username}/.minecraft/{pname}'")
+
+
+        os.chdir(f"/home/{username}/.minecraft/{pname}/")
+
+
+        os.system(f"mkdir '/home/{username}/.minecraft/{pname}/{minecraft_version}'")
+
+        os.chdir(f"/home/{username}/.minecraft/{pname}/{minecraft_version}")
+        os.system(f"unzip '/home/{username}/.minecraft/{pname}/{minecraft_version}.jar'")
+
+        with open('pack.mcmeta', 'w') as f:
+
+            f.write("""
+            {
+    "pack": {
+        "pack_format": 12,
+        "description": "A texture pack made using MSHub"
+    }
+    }
+            """)
+        
+
+        
+
+        scan_packs()
+
+        selection = pack_options[0]
+
+        dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
+
+        types = os.listdir(dir_path)
+        print(pname)
+
+
+create_first()
+
+
+
 
 def load_textures(asset):
     global images
     
     images = []
 
-    dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
+    
 
     if selection != "packnotfound":
+        dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
         for paths in os.listdir(dir_path + asset):
             if paths.endswith(".png"):
                 images.append(paths)
@@ -129,7 +187,7 @@ text.configure(yscrollcommand=sb.set)
 
 photos = []
 buttons = []
-types = ["notapack"]
+
 
 if selection != "packnotfound":
     types = os.listdir(dir_path)
@@ -150,28 +208,18 @@ header_button_size = math.ceil(800/(len(types)*0.5))
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 def startGimp(tipe, texet):
-    Thread(target=openGimp(tipe, texet)).start()
+    if selection != "packnotfound":
+        Thread(target=openGimp(tipe, texet)).start()
     
 
 def openGimp(tp, txt):
-
-    dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
-
     if selection != "packnotfound":
-        os.system("gimp "+ dir_path + tp + txt)
+
+        dir_path = f"/home/{username}/.minecraft/{selection}/{minecraft_version}/assets/minecraft/textures/"
+
+        if selection != "packnotfound":
+            os.system("gimp "+ dir_path + tp + txt)
 
 
 
@@ -189,7 +237,6 @@ def searchCmd():
     global cutex
     cutex = load_textures(ctype)
     stext = searchbar.get()
-    
     cutexer = copy.copy(cutex)
     
     if stext != "":
@@ -277,13 +324,6 @@ def newpack():
     
     scan_packs()
     drop_updater()
-
-
-        
-
-        
-
-
     print(pname)
 
     top.destroy()
@@ -473,4 +513,3 @@ print("starting main loop")
 window.bind("<KeyRelease>", updatee)
 mainLoop = Thread(target=window.mainloop())
 mainLoop.start()
-
