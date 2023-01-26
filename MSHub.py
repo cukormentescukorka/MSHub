@@ -67,9 +67,13 @@ def contains_certain_characters(string, characters):
 
 minecraft_version =  0
 
-for z in next(os.walk(f"/home/{username}/.minecraft/versions/"))[1]:
-    if contains_certain_characters(z, ".0123456789"):
-        minecraft_version = z
+
+if selection == "packnotfound":
+    for z in next(os.walk(f"/home/{username}/.minecraft/versions/"))[1]:
+        if contains_certain_characters(z, ".0123456789"):
+            minecraft_version = z
+else:
+    minecraft_version = [name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
 
 
 
