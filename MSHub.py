@@ -296,6 +296,7 @@ def drop_updater():
         print(item)
         uitems.append(item)
         pack_drop["menu"].add_command(label=uitems[pack_options.index(item)], command=lambda value=item: clicked.set(value))
+        
 
 def newpack():
     global name_entry_reference
@@ -481,7 +482,8 @@ def callback(selektion, huhu, ioi):
     global minecraft_version
     selection = clicked.get()
     print(selektion, huhu, ioi)
-    #minecraft_version = next(os.walk(f"/home/{username}/.minecraft/{clicked}/"))[1][0]
+    minecraft_version = [name for name in os.listdir(f"/home/{username}/.minecraft/{selection}/") if os.path.isdir(os.path.join(f"/home/{username}/.minecraft/{selection}/", name))][0]
+    print(minecraft_version)
     scan_packs()
     build_buttons_list()
     build_header()
