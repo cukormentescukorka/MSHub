@@ -17,19 +17,13 @@ import sys
 import zipfile
 import base64
 import requests
+import webbrowser
 
 
-#check for updates
-url = 'https://api.github.com/repos/{repo_name}/contents/{path_to_file}'
-req = requests.get(url)
-if req.status_code == requests.codes.ok:
-    req = req.json()  # the response is a JSON
-    # req is now a dict with keys: name, encoding, url, size ...
-    # and content. But it is encoded with base64.
-    content = base64.decodestring(req['content'])
-    print(content)
-else:
-    print('Version file was not found.')
+
+current_version = "1.5.3"
+
+
 
 
 
@@ -181,7 +175,7 @@ def load_textures(asset):
 
 window = tk.Tk()
 
-window.title("MSHub")
+window.title("MSHub " + current_version)
 
 window.configure(bg="#a1a1a1")
 
@@ -196,6 +190,40 @@ text.place(x=0, y=120, width= 384, height= 680)
 textr = tk.Text(window, bg = 'lightgrey')
 textr.pack(side="left")
 textr.place(x=400, y=120, width= 384, height= 680)
+
+def dwnldnw():
+    webbrowser.open("https://github.com/cukormentescukorka/MSHub/tree/master/dist", new=2)
+
+
+def open_popup(tt):
+   global top 
+   top = Toplevel(window)
+   top.geometry("800x100")
+   top.title("Hey")
+   top.resizable(False, False)
+   tk.Button(top, text="Download Here", bg="lightgreen", command=dwnldnw).place(x=300, y=50, width= 200, height= 40)
+   tk.Label(top, text=tt, font=('Georgia 30')).place(x=0, y=0)
+
+
+#https://github.com/cukormentescukorka/MSHub/tree/master/dist
+#check for updates
+url = 'https://api.github.com/repos/cukormentescukorka/MSHub/contents/dist/version-info'
+req = requests.get(url)
+if req.status_code == requests.codes.ok:
+    req = req.json()  # the response is a JSON
+    # req is now a dict with keys: name, encoding, url, size ...
+    # and content. But it is encoded with base64.
+    content = str(base64.b64decode(req['content']))[2:-3]
+
+    if content.replace(".", "") != current_version.replace(".", ""):
+        print(f"New version is available({content})")
+        open_popup(f"New version of MSHub is available({content})")
+    
+else:
+    print('Version file was not found.')
+
+
+
 
 def yview(*args):
     text.yview(*args)
