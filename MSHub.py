@@ -13,7 +13,7 @@ from threading import *
 import math
 import subprocess
 import copy
-import sys
+import sys          
 import zipfile
 import base64
 import requests
@@ -23,8 +23,6 @@ import webbrowser
 
 
 current_version = "1.6.1"
-
-
 
 
 
