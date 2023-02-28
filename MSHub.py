@@ -22,7 +22,7 @@ import webbrowser
 
 
 
-current_version = "1.5.3"
+current_version = "1.6.1"
 
 
 
