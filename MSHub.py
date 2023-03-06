@@ -22,7 +22,8 @@ import webbrowser
 
 
 
-current_version = "1.6.1"
+
+current_version = "1.6.2"
 
 
 
@@ -206,20 +207,24 @@ def open_popup(tt):
 
 #https://github.com/cukormentescukorka/MSHub/tree/master/dist
 #check for updates
-url = 'https://api.github.com/repos/cukormentescukorka/MSHub/contents/dist/version-info'
-req = requests.get(url)
-if req.status_code == requests.codes.ok:
-    req = req.json()  # the response is a JSON
-    # req is now a dict with keys: name, encoding, url, size ...
-    # and content. But it is encoded with base64.
-    content = str(base64.b64decode(req['content']))[2:-3]
 
-    if content.replace(".", "") != current_version.replace(".", ""):
-        print(f"New version is available({content})")
-        open_popup(f"New version of MSHub is available({content})")
-    
-else:
-    print('Version file was not found.')
+try:
+    url = 'https://api.github.com/repos/cukormentescukorka/MSHub/contents/dist/version-info'
+    req = requests.get(url)
+    if req.status_code == requests.codes.ok:
+        req = req.json()  # the response is a JSON
+        # req is now a dict with keys: name, encoding, url, size ...
+        # and content. But it is encoded with base64.
+        content = str(base64.b64decode(req['content']))[2:-3]
+
+        if content.replace(".", "") != current_version.replace(".", ""):
+            print(f"New version is available({content})")
+            open_popup(f"New version of MSHub is available({content})")
+        
+    else:
+        print('Version file was not found.')
+except:
+    print("No Internet")
 
 
 
