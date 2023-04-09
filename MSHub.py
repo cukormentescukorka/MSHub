@@ -21,9 +21,8 @@ import webbrowser
 
 
 
-
-
-current_version = "1.6.2"
+#husvet
+current_version = "1.6.3"
 
 
 
@@ -72,7 +71,7 @@ def contains_certain_characters(string, characters):
     return all(char in characters for char in string)
 
 
-minecraft_version =  0
+minecraft_version = 0
 
 
 if selection == "packnotfound":
